@@ -4,7 +4,7 @@ import logging
 from pathlib import Path
 
 import pygame
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -74,6 +74,23 @@ async def get_audio_files():
     audio_files = [f for f in files if f.endswith(("mp3", ".wav", ".ogg", ".m4a"))]
     return {"files": audio_files}
 
+
+@app.post("/api/upload-audio")
+async def upload_audio(file: UploadFile = File(...)):
+    # Создаем папку если нет
+    os.makedirs("audio", exist_ok=True)
+
+    # Сохраняем файл
+    file_path = f"audio/{file.filename}"
+
+    # Просто читаем и пишем
+    with open(file_path, "wb") as f:
+        f.write(await file.read())
+
+    return {
+        "message": f"Файл {file.filename} загружен",
+        "filename": file.filename
+    }
 
 @app.post("/api/play-audio")
 async def play_audio(request: AudioRequest):

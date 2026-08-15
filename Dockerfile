@@ -1,24 +1,24 @@
-# ./frontend/Dockerfile
-# Stage 1: Build
-FROM node:18-alpine as build
+FROM python:3.11-slim
 
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+# Устанавливаем системные зависимости для звука
+RUN apt-get update && apt-get install -y \
+    mpg123 \
+    alsa-utils \
+    libasound2-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY . .
-RUN npm run build
+# Копируем requirements и устанавливаем Python зависимости
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Stage 2: Serve with nginx
-FROM nginx:alpine
+# Копируем код приложения
+COPY ./app /app/app
 
-# Копируем собранные файлы
-COPY --from=build /app/build /usr/share/nginx/html
+# Открываем порт
+EXPOSE 8000
 
-# Копируем конфиг nginx (опционально)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Запускаем FastAPI
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

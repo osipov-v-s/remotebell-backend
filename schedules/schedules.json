@@ -1,0 +1,78 @@
+{
+  "schedules": [
+    {
+      "day": "monday",
+      "dayIndex": 1,
+      "dayRu": "Понедельник",
+      "events": [
+        {
+          "time": "123",
+          "filepath": "shooter.mp3",
+          "duration": 321
+        }
+      ]
+    },
+    {
+      "day": "tuesday",
+      "dayIndex": 2,
+      "dayRu": "Вторник",
+      "events": []
+    },
+    {
+      "day": "wednesday",
+      "dayIndex": 3,
+      "dayRu": "Среда",
+      "events": [
+        {
+          "time": "16:47",
+          "filepath": "easy_vide_california.mp3",
+          "duration": 15
+        },
+        {
+          "time": "16:48",
+          "filepath": "shooter.mp3",
+          "duration": 15
+        },
+        {
+          "time": "16:50",
+          "filepath": "guitar_vibe.mp3",
+          "duration": 15
+        },
+        {
+          "time": "16:51",
+          "filepath": "shooter.mp3",
+          "duration": 25
+        },
+        {
+          "time": "17:06",
+          "filepath": "bomb.mp3",
+          "duration": 30
+        }
+      ]
+    },
+    {
+      "day": "thursday",
+      "dayIndex": 4,
+      "dayRu": "Четверг",
+      "events": []
+    },
+    {
+      "day": "friday",
+      "dayIndex": 5,
+      "dayRu": "Пятница",
+      "events": []
+    },
+    {
+      "day": "saturday",
+      "dayIndex": 6,
+      "dayRu": "Суббота",
+      "events": []
+    },
+    {
+      "day": "sunday",
+      "dayIndex": 7,
+      "dayRu": "Воскресенье",
+      "events": []
+    }
+  ]
+}

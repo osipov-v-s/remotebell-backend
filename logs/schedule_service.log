@@ -1,0 +1,10 @@
+2026-07-08 15:49:52,021 | main | INFO | Load schedule service...
+2026-07-08 15:49:52,023 | main | INFO | task is running
+2026-07-08 16:47:52,079 | services.ScheduleService | INFO | Playing: easy_vide_california.mp3 at 16:47
+2026-07-08 16:50:07,101 | services.ScheduleService | INFO | Playing: guitar_vibe.mp3 at 16:50
+2026-07-08 16:51:22,128 | services.ScheduleService | INFO | Playing: shooter.mp3 at 16:51
+2026-07-08 17:06:47,158 | services.ScheduleService | INFO | Playing: bomb.mp3 at 17:06
+2026-08-15 16:44:04,756 | asyncio | DEBUG | Using proactor: IocpProactor
+2026-08-15 16:44:04,789 | main | INFO | Load schedule service...
+2026-08-15 16:44:04,789 | main | INFO | task is running
+2026-08-15 16:44:36,973 | main | INFO | Schedule service stopped

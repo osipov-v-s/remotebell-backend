@@ -115,7 +115,8 @@ async def play_audio(request: AudioRequest):
 
         # Load and play new audio
         pygame.mixer.music.load(audio_path)
-        pygame.mixer.music.play()
+        pygame.mixer.music.play(loops=-1, fade_ms=1000)  # 1 секунда затухания
+        #pygame.mixer.music.play()
 
         current_playing = filename
         is_playing = True
